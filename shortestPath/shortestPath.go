@@ -1,9 +1,5 @@
 package shortestpath
 
-import (
-	"strconv"
-)
-
 type Graph interface {
 	Vertices() []Vertex
 	Neighbors(v Vertex) []Vertex
@@ -36,15 +32,19 @@ func (g GraphS) Neighbors(v Vertex) (vs []Vertex) {
 
 func (g GraphS) Weight(u, v Vertex) int { return g.Edges[u][v] }
 
-func (g GraphS) Path(vv []Vertex) (s string) {
+func (g GraphS) Path(vv []Vertex) (int, int) {
+	var lk = 0
+
 	if len(vv) == 0 {
-		return ""
+		return 0, 0
 	}
-	s = strconv.Itoa(int(vv[0]))
+	//s = strconv.Itoa(int(vv[0]))
 	for _, v := range vv[1:] {
-		s += " -> " + strconv.Itoa(int(v))
+		//s += " -> " + strconv.Itoa(int(v))
+		lk = int(v)
 	}
-	return s
+
+	return int(vv[0]), lk
 }
 
 const Infinity = int(^uint(0) >> 1)
