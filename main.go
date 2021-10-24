@@ -8,6 +8,7 @@ import (
 
 	"BookingBR.com/roomallocation"
 	"BookingBR.com/searchhotels"
+	"BookingBR.com/shortestpath"
 	"BookingBR.com/utils/model"
 	"BookingBR.com/utils/user"
 )
@@ -57,16 +58,16 @@ func main() {
 		289.0,
 		190.0,
 		195.0,
-		300.0,
+		1300.0,
 		130.0,
 		279.0,
 		350.0,
 		110.0,
-		689.0,
+		1689.0,
 		490.0,
-		905.0,
+		1905.0,
 		515.0,
-		130.0,
+		1130.0,
 		279.0,
 		350.0,
 		1310.0,
@@ -86,36 +87,67 @@ func main() {
 		6580.,
 		1320.,
 		7840.,
-		5760.,
+		6760.,
 		8640.,
 		10080.,
 		12160.,
-		12160.,
+		15160.,
 	}
 
 	Star := []float64{
-		7.0,
+		3.0,
 		2.0,
 		4.0,
-		1.0,
-		5.0,
-		8.0,
 		10.0,
 		2.0,
-		1.,
+		3.0,
+		1.0,
+		9.0,
 		6.,
-		1.,
-		7.,
-		5.,
 		8.,
-		10.,
-		1.,
-		1.,
+		8.,
+		2.,
+		3.,
+		8.,
+		4.,
+		8.,
+		9.,
+	}
+
+	Destiny := []int{
+		1, 3, 5, 4, 6, 7, 8, 10, 11, 2, 9, 12, 17, 15, 14, 16, 13,
+	}
+
+	Link := []model.Destiny{
+		{1, 2, 1},
+		{2, 3, 2},
+		{3, 4, 3},
+		{4, 16, 5},
+		{16, 1, 6},
+		{1, 4, 4},
+		{1, 12, 7},
+		{12, 13, 8},
+		{13, 15, 4},
+		{15, 5, 10},
+		{5, 15, 11},
+		{5, 4, 1},
+		{15, 6, 12},
+		{6, 7, 3},
+		{13, 14, 2},
+		{14, 7, 3},
+		{14, 9, 1},
+		{7, 8, 4},
+		{8, 9, 5},
+		{9, 10, 9},
+		{10, 11, 7},
+		{11, 1, 10},
+		{4, 5, 2},
+		{5, 6, 4},
 	}
 
 	var bookings []model.Booking
 
-	bookings = roomallocation.BuildBookingOnline(Names, Values, Time, Star)
+	bookings = roomallocation.BuildBookingOnline(Names, Values, Time, Star, Destiny)
 
 	taken, timeFull := roomallocation.Glutton(bookings, maxDays, keyString)
 
@@ -143,28 +175,21 @@ func main() {
 	answerPath := user.ReadPathAnswer()
 
 	if answerPath {
-		fmt.Println(answerPath)
-	}
+		g := shortestpath.GraphS{[]shortestpath.Vertex{1, 2, 3, 4}, make(map[shortestpath.Vertex]map[shortestpath.Vertex]int)}
 
-	/*g := shortestpath.GraphS{[]shortestpath.Vertex{1, 2, 3, 4}, make(map[shortestpath.Vertex]map[shortestpath.Vertex]int)}
+		for i := 0; i < len(Link); i++ {
+			g.Edge(Link[i].Source, Link[i].Local, Link[i].Weight)
+		}
 
-	g.Edge(1, 2, 2)
-	g.Edge(2, 3, 6)
-	g.Edge(3, 2, 7)
-	g.Edge(4, 3, 1)
-	g.Edge(4, 5, 3)
-	g.Edge(5, 1, 1)
-	g.Edge(5, 2, 4)
-	g.Edge(3, 1, 3)
-	g.Edge(4, 2, 1)
-
-	dist, next := shortestpath.FloydWarshall(g)
-	fmt.Println("pair\tdist\tpath")
-	for u, m := range dist {
-		for v, d := range m {
-			if u != v {
-				fmt.Printf("%d -> %d\t%3d\t%s\n", u, v, d, g.Path(shortestpath.Path(u, v, next)))
+		dist, next := shortestpath.FloydWarshall(g)
+		fmt.Println("pair\tdist\tpath")
+		for u, m := range dist {
+			for v, d := range m {
+				if u != v {
+					fmt.Printf("%d -> %d\t%3d\t%s\n", u, v, d, g.Path(shortestpath.Path(u, v, next)))
+				}
 			}
 		}
-	}*/
+	}
+
 }

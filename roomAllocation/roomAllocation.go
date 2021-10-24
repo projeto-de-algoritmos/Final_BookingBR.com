@@ -7,10 +7,10 @@ import (
 	"BookingBR.com/utils/model"
 )
 
-func BuildBookingOnline(Names []string, Values []float64, Time []float64, Star []float64) []model.Booking {
+func BuildBookingOnline(Names []string, Values []float64, Time []float64, Star []float64, Dest []int) []model.Booking {
 	booking := []model.Booking{}
 	for index, Value := range Values {
-		booking = append(booking, model.Booking{Names[index], Value, Time[index], Star[index]})
+		booking = append(booking, model.Booking{Names[index], Value, Time[index], Star[index], Dest[index]})
 	}
 	return booking
 }
