@@ -97,6 +97,12 @@ func main() {
 			}
 		}
 		fmt.Printf(s)
+		fmt.Println()
 	}
+
+	fmt.Println()
+	fmt.Println(`
+				Obrigado por utilizar os serviços da BookingBR.com 😄 😄 !!
+	`)
 
 }

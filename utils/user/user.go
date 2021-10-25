@@ -47,7 +47,9 @@ func ConvertDaysToMinute(days float64) float64 {
 func ReadPathAnswer() bool {
 	fmt.Println(`
 	Gostaria de saber o melhor trajeto para frequentar os hoteis ?
+	`)
 
+	fmt.Println(`
 	1 - Sim
 	2 - Não 
 	`)

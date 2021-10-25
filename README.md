@@ -1,44 +1,39 @@
-**!! Atenção: Renomeie o seu repositório para (Tema)_(NomeDoProjeto). !!** 
+# BookingBR.com
 
-Temas:
- - Grafos1
- - Grafos2
- - PD
- - D&C
- - Greed
- - Final 
- 
- **!! *Não coloque os nomes dos alunos no título do repositório*. Exemplo de título correto: Grafos2_Labirinto-do-Minotauro !!**
- 
- (Apague essa seção)
-
-# NomedoProjeto
-
-**Número da Lista**: X<br>
-**Conteúdo da Disciplina**: XXXXXXXXXX<br>
+**Número da Lista**: 11<br>
+**Conteúdo da Disciplina**: Trabalho Final<br>
 
 ## Alunos
 |Matrícula | Aluno |
 | -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| 16/0013321  |  Luciano dos Santos Silva |
 
 ## Sobre 
-Descreva os objetivos do seu projeto e como ele funciona. 
+O BookingBR.com se trata de um mecanismo de alocação de hoteis que faz um agendamento de acordo com o tempo disponível e traz recomendações para o cliente por qual hotel ele deveria começar sua viagem.
 
 ## Screenshots
-Adicione 3 ou mais screenshots do projeto em funcionamento.
-
+![](https://i.ibb.co/S7Q5fGN/Final-1.png)
+![](https://i.ibb.co/QH5TQRR/Final-2.png)
+![](https://i.ibb.co/L1ghkS0/Final-3.png)
 ## Instalação 
-**Linguagem**: xxxxxx<br>
-**Framework**: (caso exista)<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
+**Linguagem**: Golang<br>
+**Pré-requisitos**:
+
+    - Go 1.16.7
+    - Git 2.33 ou superior
 
 ## Uso 
-Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
+Para executar o projeto execute os seguintes passosÇ
 
-## Outros 
-Quaisquer outras informações sobre seu projeto podem ser descritas abaixo.
+     - Abra o terminal da sua distribuição já com a ultima versão do golang instalada
+
+Digite o seguinte comando:
+
+    - git clone https://github.com/projeto-de-algoritmos/Final_BookingBR.com && cd Final_BookingBR.com/
+
+Execute o seguinte comando para rodar o projeto:
+
+     - go run .
 
 
 
